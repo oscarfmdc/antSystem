@@ -1,0 +1,80 @@
+
+ACO algorithms for the TSP, v1.03
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 60.00
+seed		 1477568823
+optimum			 7542
+n_ants			 52
+nn_ants			 20
+alpha			 1.00
+beta			 5.00
+rho			 0.20
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+begin problem ../problems/berlin52.tsp
+seed 1477568823
+begin try 0 
+best 7542	 iteration 1	 tours 54	 time 0.006
+end try 0
+
+seed 1053310188
+begin try 1 
+best 7542	 iteration 1	 tours 54	 time 0.006
+end try 1
+
+seed 1963121878
+begin try 2 
+best 7542	 iteration 1	 tours 54	 time 0.005
+end try 2
+
+seed 235320235
+begin try 3 
+best 7542	 iteration 1	 tours 54	 time 0.005
+end try 3
+
+seed 1200393068
+begin try 4 
+best 7542	 iteration 1	 tours 54	 time 0.004
+end try 4
+
+seed 1285682897
+begin try 5 
+best 7542	 iteration 1	 tours 54	 time 0.004
+end try 5
+
+seed 1980490768
+begin try 6 
+best 7542	 iteration 1	 tours 54	 time 0.005
+end try 6
+
+seed 319507830
+begin try 7 
+best 7542	 iteration 1	 tours 54	 time 0.004
+end try 7
+
+seed 710835768
+begin try 8 
+best 7542	 iteration 1	 tours 54	 time 0.004
+end try 8
+
+seed 1625609145
+begin try 9 
+best 7542	 iteration 1	 tours 54	 time 0.004
+end try 9
+
+end problem berlin52
