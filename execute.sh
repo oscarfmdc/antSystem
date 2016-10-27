@@ -1,6 +1,8 @@
 #!/bin/bash
 # Recopilacion de ejecuciones
 
+# http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/
+
 # m : numero de hormigas
 # a : alfa (influencia de la feromona)
 # b : beta (influencia de la distancia)

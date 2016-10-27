@@ -1,0 +1,105 @@
+
+ACO algorithms for the TSP, v1.03
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 10.00
+seed		 1477596876
+optimum			 1
+n_ants			 1022
+nn_ants			 20
+alpha			 1.00
+beta			 5.00
+rho			 0.20
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+begin problem problems/u1432.tsp
+seed 1477596876
+begin try 0 
+best 159032	 iteration 1	 tours 1024	 time 1.307
+best 158383	 iteration 3	 tours 3068	 time 3.669
+best 158221	 iteration 7	 tours 7156	 time 8.201
+end try 0
+
+seed 123164984
+begin try 1 
+best 159448	 iteration 1	 tours 1024	 time 1.339
+best 159253	 iteration 2	 tours 2046	 time 2.528
+best 158847	 iteration 6	 tours 6134	 time 7.127
+end try 1
+
+seed 1014992385
+begin try 2 
+best 159819	 iteration 1	 tours 1024	 time 1.332
+best 159604	 iteration 2	 tours 2046	 time 2.590
+best 158929	 iteration 3	 tours 3068	 time 3.795
+best 158693	 iteration 8	 tours 8178	 time 9.735
+end try 2
+
+seed 1196759197
+begin try 3 
+best 159772	 iteration 1	 tours 1024	 time 1.396
+best 159195	 iteration 2	 tours 2046	 time 2.725
+best 158994	 iteration 3	 tours 3068	 time 3.944
+best 158682	 iteration 4	 tours 4090	 time 5.140
+best 158501	 iteration 7	 tours 7156	 time 8.914
+end try 3
+
+seed 1736709997
+begin try 4 
+best 159352	 iteration 1	 tours 1024	 time 1.363
+best 158918	 iteration 6	 tours 6134	 time 7.481
+end try 4
+
+seed 1984251856
+begin try 5 
+best 159778	 iteration 1	 tours 1024	 time 1.366
+best 159216	 iteration 2	 tours 2046	 time 2.818
+best 159088	 iteration 5	 tours 5112	 time 6.520
+end try 5
+
+seed 1834335662
+begin try 6 
+best 159476	 iteration 1	 tours 1024	 time 1.343
+best 159308	 iteration 2	 tours 2046	 time 2.529
+best 159253	 iteration 3	 tours 3068	 time 3.702
+best 159037	 iteration 4	 tours 4090	 time 4.846
+best 158733	 iteration 5	 tours 5112	 time 5.979
+best 158624	 iteration 7	 tours 7156	 time 8.212
+best 158616	 iteration 9	 tours 9200	 time 10.000
+end try 6
+
+seed 1586812410
+begin try 7 
+best 158988	 iteration 1	 tours 1024	 time 1.343
+best 158650	 iteration 6	 tours 6134	 time 7.381
+end try 7
+
+seed 1647269828
+begin try 8 
+best 159581	 iteration 1	 tours 1024	 time 1.304
+best 159302	 iteration 3	 tours 3068	 time 3.685
+best 158953	 iteration 6	 tours 6134	 time 7.106
+best 158799	 iteration 8	 tours 8178	 time 9.329
+end try 8
+
+seed 1989095271
+begin try 9 
+best 158992	 iteration 1	 tours 1024	 time 1.308
+best 158683	 iteration 3	 tours 3068	 time 3.685
+end try 9
+
+end problem u1432
