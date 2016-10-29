@@ -1,0 +1,69 @@
+#---------------------------------------------------------------------
+#
+# Multi-objective Ant Colony Optimisation (MoACO)
+#
+# Author: 	Manuel Lopez-Ibanez
+#
+#
+VERSION = 0.1
+#
+# $Name$ $Revision$  $Date$
+#---------------------------------------------------------------------
+#
+# Copyright (c) 2005-2012, Manuel Lopez-Ibanez
+# TeX: \copyright 2005-2012, Manuel L{\'o}pez-Ib{\'a}{\~n}ez
+#
+# This program is free software (software libre); you can redistribute
+# it and/or modify it under the terms of version 2 of the GNU General
+# Public License version as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, you can obtain a copy of the GNU
+# General Public License at:
+#                http://www.gnu.org/copyleft/gpl.html
+# or by writing to:
+#          Free Software Foundation, Inc., 59 Temple Place,
+#                Suite 330, Boston, MA 02111-1307 USA
+#
+#---------------------------------------------------------------------
+
+MAIN = moaco_$(PROBLEM)
+BASE_DIR = ../../
+BINDIR = ~/bin
+
+DEBUG=0
+# =2 extra information is generated and checks are perfomed
+# =1 only checks are performed
+# =0 disable (fastest).
+
+# SOURCES
+MAIN_OBJS = moaco.o moaco_io.o moaco_spea2.o 
+MAIN_HDRS = moaco.h moaco_parameters.h moaco_spea2.h
+
+PARETO_OBJS = pareto.o
+PARETO_HDRS = pareto.h
+PARETO_DIR  = $(BASE_DIR)/libpareto/
+
+LIBMISC := libmisc.a
+LIBMISC_DIR := $(BASE_DIR)/libmisc
+MISC_MAKE_DIR := $(LIBMISC_DIR)/current/
+
+PROBLEM = btsp
+PROBLEM_DIR = $(BASE_DIR)/$(PROBLEM)/
+include $(PROBLEM_DIR)/Makefile.lib
+LIBPROBLEM := $(PROBLEM_DIR)/$(LIBPROBLEM)
+
+PROBLEM_MAKE_DIR = $(PROBLEM_DIR)
+
+OFLAGS = -O3 #-funsafe-loop-optimizations
+override CFLAGS += -Wall -W 
+# -Wunsafe-loop-optimizations\
+#      -Wconversion -Winline \
+#      -fno-common -fshort-enums \
+#      -Wmissing-prototypes -Wstrict-prototypes \
+#      -Wwrite-strings

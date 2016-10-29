@@ -1,0 +1,53 @@
+#---------------------------------------------------------------------
+#
+# Makefile for bQAP
+#
+PROBLEM_VERSION = 0.1.svn$(SVN_REV)
+#
+# $Name$ $Revision$  $Date$
+#
+#---------------------------------------------------------------------
+#
+# Copyright (c) 2005, Manuel Lopez-Ibanez
+# TeX: \copyright 2005, Manuel L{\'o}pez-Ib{\'a}{\~n}ez
+#
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, you can obtain a copy of the GNU
+# General Public License at:
+#                http://www.gnu.org/copyleft/gpl.html
+# or by writing to:
+#          Free Software Foundation, Inc., 59 Temple Place,
+#                Suite 330, Boston, MA 02111-1307 USA
+#
+#---------------------------------------------------------------------
+
+DEBUG=1
+# =2 extra information is generated and checks are perfomed
+# =1 only checks are performed
+# =0 disable (fastest).
+
+SRC_DIR=./
+OBJS = solution.o tsp_instance.o btsp.o btsp_moaco.o btsp_wls.o btsp_pls.o btsp_epls.o
+HDRS = *.h
+
+BASE_DIR = ../
+
+LIBMISC = libmisc.a
+LIBMISC_DIR := $(BASE_DIR)/libmisc/
+MISC_MAKE_DIR := $(LIBMISC_DIR)/current/
+
+PARETO_HDRS = pareto.h
+PARETO_DIR  = $(BASE_DIR)/libpareto/
+
+OFLAGS  = -O3
+override CFLAGS += -Wall -W

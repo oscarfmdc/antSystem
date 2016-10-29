@@ -1,0 +1,212 @@
+/*************************************************************************
+
+ Simple timer functions.
+
+ ---------------------------------------------------------------------
+
+ Copyright (c) 2005, 2006 Manuel Lopez-Ibanez
+ TeX: \copyright 2005, 2006 Manuel L{\'o}pez-Ib{\'a}{\~n}ez
+
+ This program is free software (software libre); you can redistribute
+ it and/or modify it under the terms of version 2 of the GNU General
+ Public License as published by the Free Software Foundation.
+
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, you can obtain a copy of the GNU
+ General Public License at:
+                 http://www.gnu.org/copyleft/gpl.html
+ or by writing to:
+           Free Software Foundation, Inc., 59 Temple Place,
+                 Suite 330, Boston, MA 02111-1307 USA
+
+ ----------------------------------------------------------------------
+
+ NOTES: based on source code from Thomas Stuetzle.
+
+*************************************************************************/
+
+#include <stdio.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+#include "timer.h"
+
+static struct rusage res;
+static struct timeval tp;
+static struct timeval virtual_time, real_time,
+    stop_virtual_time, stop_real_time;
+
+static double timer_walltime(struct timeval current, struct timeval *old);
+static double timer_cputime(struct rusage res_current, struct timeval *old);
+
+static int
+timeval_subtract (struct timeval * result,
+                  struct timeval * x, struct timeval * y);
+
+static int
+timeval_add (struct timeval * result,
+                  struct timeval * x, struct timeval * y);
+
+
+double timer_walltime(struct timeval current, struct timeval *old)
+{
+    struct timeval difference;
+
+    timeval_subtract(&difference, &current, old);
+    return( (double)difference.tv_sec +  (double)difference.tv_usec * 1.0E-6 );
+}
+
+double timer_cputime(struct rusage res_current, struct timeval *old)
+{
+    struct timeval difference;
+    struct timeval current;
+
+    timeval_add(current, res_current.ru_utime, res_current.ru_stime);
+
+    timeval_subtract(&difference, &current, old);
+
+    return( (double)difference.tv_sec +  (double)difference.tv_usec * 1.0E-6 );
+}
+int
+timeval_add (struct timeval * result,
+                   struct timeval * x, struct timeval * y)
+{
+    result->tv_sec = x->tv_sec + y->tv_sec;
+    result->tv_usec = x->tv_usec + y->tv_usec;
+    while (result->tv_usec >= 1000000) {
+        result->tv_sec++;
+        result->tv_usec -= 1000000;
+    }
+}
+
+
+/*
+   Subtract the `struct timeval' values x and y, storing the result in
+   result. Return 1 if the difference is negative, otherwise 0.
+
+   It is often necessary to subtract two values of type struct timeval
+   or struct timespec. Here is the best way to do this. It works even
+   on some peculiar operating systems where the tv_sec member has an
+   unsigned type.
+
+   http://www.gnu.org/software/libc/manual/html_node/Elapsed-Time.html#Elapsed-Time
+*/
+int
+timeval_subtract (struct timeval * result,
+                   struct timeval * x, struct timeval * y)
+{
+    /* Perform the carry for the later subtraction by updating y. */
+    if (x->tv_usec < y->tv_usec) {
+        int nsec = (y->tv_usec - x->tv_usec) / 1000000 + 1;
+        y->tv_usec -= 1000000 * nsec;
+        y->tv_sec += nsec;
+    }
+    if (x->tv_usec - y->tv_usec > 1000000) {
+        int nsec = (x->tv_usec - y->tv_usec) / 1000000;
+        y->tv_usec += 1000000 * nsec;
+        y->tv_sec -= nsec;
+    }
+
+    /* Compute the time remaining to wait.
+       tv_usec is certainly positive. */
+    result->tv_sec = x->tv_sec - y->tv_sec;
+    result->tv_usec = x->tv_usec - y->tv_usec;
+
+    /* Return 1 if result is negative. */
+    return x->tv_sec < y->tv_sec;
+}
+
+void Timer_start()
+{
+    gettimeofday( &tp, NULL );
+    real_time.tv_sec = tp.tv_sec;
+    real_time.tv_usec = tp.tv_usec;
+
+    getrusage( RUSAGE_SELF, &res );
+    timeval_add(virtual_time, res.ru_utime, res.ru_stime);
+}
+
+/*
+ *  Return the time used in seconds (either
+ *  REAL or VIRTUAL time, depending on ``type'').
+ */
+double Timer_elapsed( TIMER_TYPE type )
+{
+    double timer_tmp_time;
+
+    if (type == REAL_TIME) {
+        gettimeofday( &tp, NULL );
+        timer_tmp_time = timer_walltime(tp, &real_time);
+    } else {
+        getrusage( RUSAGE_SELF, &res );
+        timer_tmp_time = timer_cputime(res, &virtual_time);
+    }
+#if DEBUG >= 2
+    if (timer_tmp_time  < 0.0) {
+        fprintf(stderr, "%s: Timer_elapsed(): warning: "
+                "negative increase in time ", __FILE__);
+        if (type == REAL_TIME) {
+            fprintf(stderr, "(%ld s %ld us - %ld s %ld us = ",
+                    tp.tv_sec , tp.tv_usec,
+                    real_time.tv_sec, real_time.tv_usec);
+        } else {
+            fprintf(stderr, "(%ld s %ld us - %ld s %ld us = ",
+                    res.ru_utime.tv_sec + res.ru_stime.tv_sec,
+                    res.ru_utime.tv_usec + res.ru_stime.tv_usec,
+                    virtual_time.tv_sec, virtual_time.tv_usec);
+        }
+        fprintf(stderr, "%.6g s)\n", timer_tmp_time);
+    }
+#endif
+    if (timer_tmp_time < 0.0) return 0;
+    return timer_tmp_time;
+}
+
+void Timer_stop(void)
+{
+    gettimeofday( &tp, NULL );
+    stop_real_time.tv_sec = tp.tv_sec;
+    stop_real_time.tv_usec = tp.tv_usec;
+
+    getrusage( RUSAGE_SELF, &res );
+    timeval_add(stop_virtual_time, res.ru_utime, res.ru_stime);
+}
+
+void Timer_continue(void)
+{
+    double timer_tmp_time;
+
+    gettimeofday( &tp, NULL );
+    timer_tmp_time = timer_walltime(tp, &stop_real_time);
+
+#if DEBUG >= 2
+    if (timer_tmp_time  < 0.0) {
+        fprintf(stderr, "%s: Timer_continue(): warning: "
+                "negative increase in time ", __FILE__);
+        fprintf(stderr, "(%ld s %ld us - %ld s %ld us = %.6g s)\n"
+                tp.tv_sec , tp.tv_usec,
+                stop_real_time.tv_sec, stop_real_time.tv_usec,
+                timer_tmp_time);
+    }
+#endif
+
+    if (timer_tmp_time > 0.0) timeval_add(&real_time,&real_time,&;
+
+    getrusage( RUSAGE_SELF, &res );
+    timer_tmp_time =  TIMER_CPUTIME(res) - stop_virtual_time;
+
+#if DEBUG >= 2
+    if (timer_tmp_time  < 0.0) {
+        fprintf(stderr, "%s: Timer_continue(): warning: "
+                "negative increase in time (%.6g - %.6g = %.6g)\n",
+                __FILE__, TIMER_CPUTIME(res),stop_virtual_time,timer_tmp_time);
+    }
+#endif
+
+    if (timer_tmp_time > 0.0) virtual_time += timer_tmp_time;
+}
+*/

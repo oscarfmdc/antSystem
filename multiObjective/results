@@ -1,0 +1,111 @@
+# Report: 
+# Metah: MOACO, version 0.1 (optimised for native)	Problem:  bTSP (0.1.svn492)
+
+# Copyright (C) 2010-2012
+# Manuel Lopez-Ibanez <manuel.lopez-ibanez@ulb.ac.be> 
+# Thomas Stuetzle <stuetzle@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO   
+# warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+# Command:  /home/borja/bin/moaco_btsp --input ../../btsp/kroAB100.tsp --time 100 --BicriterionAnt
+#
+# bTSP (0.1.svn492)
+# Data File: ../../btsp/kroAB100.tsp   Size: 100    Averages: Distance1=1693.59  Distance2=1670.67
+#
+#  Parameter settings:
+#	number trials : 1
+#	number iterations : -1
+#	time limit : 100
+#	seed : 1477746736
+#	ACO algorithm : mmas
+#	number of ants : 100
+#	rho : 0.02
+#	q_0 : 0
+#	pbest : 0.05
+#	alpha : 1
+#	beta  : 2
+#	tau_0   : 3.82482e-05
+#	tau_max : 3.82482e-05
+#	tau_min : 1.91241e-07
+#	flag_dtau_objective_function: TRUE
+#	ants candidate list : not used
+#	Number for update : 1001
+#	Update Best Ants : mixed
+#	Pheromone matrix : multiple
+#	Heuristic matrix : multiple
+#	Pheromone Aggregation mode : product
+#	Heuristic Aggregation mode : product
+#	Selection method: dominance
+#	Search directions in one iteration : all
+#	number of colonies : 1
+#	Weights [0][100] = 0 0.010101 0.020202 0.030303 0.040404 0.0505051 0.0606061 0.0707071 0.0808081 0.0909091 0.10101 0.111111 0.121212 0.131313 0.141414 0.151515 0.161616 0.171717 0.181818 0.191919 0.20202 0.212121 0.222222 0.232323 0.242424 0.252525 0.262626 0.272727 0.282828 0.292929 0.30303 0.313131 0.323232 0.333333 0.343434 0.353535 0.363636 0.373737 0.383838 0.393939 0.40404 0.414141 0.424242 0.434343 0.444444 0.454545 0.464646 0.474747 0.484848 0.494949 0.505051 0.515152 0.525253 0.535354 0.545455 0.555556 0.565657 0.575758 0.585859 0.59596 0.606061 0.616162 0.626263 0.636364 0.646465 0.656566 0.666667 0.676768 0.686869 0.69697 0.707071 0.717172 0.727273 0.737374 0.747475 0.757576 0.767677 0.777778 0.787879 0.79798 0.808081 0.818182 0.828283 0.838384 0.848485 0.858586 0.868687 0.878788 0.888889 0.89899 0.909091 0.919192 0.929293 0.939394 0.949495 0.959596 0.969697 0.979798 0.989899 1
+#	Weighted Local Search : FALSE
+#	Weighted Robust Taboo Search : FALSE
+#	Pareto Local Search : FALSE
+#	e-PLS : FALSE (N = 0)
+
+# Initialization time: 0 s
+# VmSize: 9644 kB	VmRSS: 3444 kB
+# end_trial(1) : Pareto Size = 58, Iterations = 686, Elapsed time = 100.1 s, Time (LS) = 0 s
+# Pareto: 1  Size: 58
+36770 166323
+37566 149467
+38545 145230
+39481 144082
+40208 143222
+40264 138964
+41121 138195
+42515 134920
+42723 130999
+44708 125065
+45074 123147
+47575 122537
+48072 121872
+48652 118332
+50452 115931
+51638 112938
+53716 112881
+54336 112576
+55003 110912
+55499 100576
+61385 99979
+62125 96485
+62559 93940
+66639 93549
+69518 93502
+70185 92051
+71076 90832
+71084 89648
+73166 89617
+73424 89536
+73824 89242
+73936 89210
+74023 87348
+75408 86100
+75466 81952
+78164 79821
+80300 78116
+83371 75872
+84668 75473
+86930 71370
+93321 70956
+94427 69118
+95098 68433
+96807 66967
+97132 65208
+101108 58723
+103857 55726
+113780 51743
+114951 48107
+122379 47915
+127933 46350
+131602 46235
+133680 45050
+135824 44729
+138660 42893
+140510 39001
+158092 37998
+158457 37222
+# Average Number Iterations = 686, Average Trial Time = 100.1 s

@@ -1,0 +1,195 @@
+-----------------------------------------------------------------
+         Multi-Objective Ant Colony Optimization Framework
+
+                Manuel López-Ibáñez and Thomas Stützle
+-----------------------------------------------------------------
+
+Contents
+
+    * Introduction
+    * Usage
+    * License
+    * Download
+    * Changelog
+
+
+------------
+Introduction
+------------
+
+  Multi-objective optimization problems are problems with several,
+  typically conflicting criteria for evaluating solutions. Without any
+  a priori preference information, the Pareto optimality principle
+  establishes a partial order among solutions, and the output of the
+  algorithm becomes a set of nondominated solutions rather than a
+  single one.  Various ant colony optimization (ACO) algorithms have
+  been proposed in recent years for solving such problems. These
+  multi-objective ACO (MOACO) algorithms exhibit different design
+  choices for dealing with the particularities of the multi-objective context.
+  
+  This program implements the multi-objective ant colony optimization
+  (MOACO) framework. This framework is able to instantiate most MOACO
+  algorithms from the literature, and also combine components that
+  were never studied in the literature.
+  
+Relevant literature:
+
+ [1] Manuel López-Ibáñez and Thomas Stützle. The Automatic Design of
+     Multi-Objective Ant Colony Optimization Algorithms. IEEE
+     Transactions on Evolutionary Computation, 2012.
+     doi: 10.1109/TEVC.2011.2182651
+
+ [2] Manuel López-Ibáñez and T. Stützle. Automatic configuration of
+     multi-objective ACO algorithms. In M. Dorigo et al., editors, Ant
+     Colony Optimization and Swarm Intelligence, 7th International
+     Conference, ANTS 2010, volume 6234 of Lecture Notes in Computer
+     Science, pages 95–106. Springer, Heidelberg, Germany, 2010.
+
+ [3] Manuel López-Ibáñez and T. Stützle. The impact of design choices
+     of multi-objective ant colony optimization algorithms on
+     performance: An experimental study on the biobjective TSP. In
+     M. Pelikan and J. Branke, editors, Proceedings of the Genetic and
+     Evolutionary Computation Conference, GECCO 2010, pages 71–78. ACM
+     press, New York, NY, 2010.
+
+ [4] Manuel López-Ibáñez and Thomas Stützle. An Analysis of
+     Algorithmic Components for Multiobjective Ant Colony
+     Optimization: A Case Study on the Biobjective TSP. In P. Collet
+     et al., editors, Artificial Evolution, volume 5975 of Lecture
+     Notes in Computer Science, pages 134-145. Springer, Heidelberg,
+     Germany, 2010.
+
+
+------------
+Building
+------------
+
+The programming language is C, and the software has been tested on
+GNU/Linux using GCC >= 4.1.
+
+The unpacked sources contain the following directories: btsp, libmisc,
+libpareto, and moaco. Change the current directory to moaco/trunk and
+invoke make:
+
+   $ tar xvf moaco-0.1.tar.gz
+   $ cd moaco/trunk
+   $ make
+
+For extending the code to a new problem, create a new directory
+beside btsp, e.g., myproblem, and then implement all functions called
+by the moaco and prefixed by Sol. The code can be compiled for the new
+problem as:
+
+   $ cd moaco/trunk
+   $ make clean
+   $ make PROBLEM=myproblem
+
+
+------------
+Usage
+------------
+
+An example of invocation is:
+
+   $ cd moaco/trunk
+   $ ~/bin/moaco_btsp --input ../../btsp/kroAB100.tsp --time 100 --BicriterionAnt
+
+Other options available are given by the output of the parameter --help.
+
+The instance type handled by the btsp follows the format produced by
+the DIMACS benchmark generator [*]. Bi-objective TSP instances can be
+constructed by simply concatenating two single-objective instances
+such as:
+
+   $ cat euclidA100.tsp euclidB100.tsp > euclidAB100.tsp
+
+
+[*] http://www2.research.att.com/~dsj/chtsp/download.html
+
+
+------------
+License
+------------
+
+This software is Copyright (C) 2010 - 2012
+Manuel Lopez-Ibanez and Thomas Stuetzle.
+
+This program is free software (software libre); you can redistribute
+it and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+The file LICENSE contains a copy of the GNU General Public License; if
+not, you can obtain a copy of the GNU General Public License at
+http://www.gnu.org/copyleft/gpl.html
+
+This software includes code from various sources:
+
+  * The GNU Scientific Library (GSL) is Copyright (C) The GSL Team,
+    under the terms of the GPL.
+
+  * moaco_spea2.c uses code from the PISA project Copyright (C) Swiss
+    Federal Institute of Technology, Computer Engineering and Networks
+    Laboratory, under the terms of the PISA license (PISA_LICENSE.txt).
+
+IMPORTANT NOTE: Please be aware that the fact that this program is
+released as Free Software does not excuse you from scientific
+propriety, which obligates you to give appropriate credit! If you
+write a scientific paper describing research that made substantive use
+of this program, it is your obligation as a scientist to (a) mention
+the fashion in which this software was used in the Methods section;
+(b) mention the algorithm in the References section. The appropriate
+citation is:
+
+     Manuel López-Ibáñez and Thomas Stützle. The Automatic Design of
+     Multi-Objective Ant Colony Optimization Algorithms. IEEE
+     Transactions on Evolutionary Computation, 2012.
+     doi: 10.1109/TEVC.2011.2182651
+
+Moreover, as a personal note, I would appreciate it if you would email
+manuel.lopez-ibanez@ulb.ac.be with citations of papers referencing this
+work so I can mention them to my funding agent and tenure committee.
+
+
+------------
+Download
+------------
+
+The latest version can be downloaded from:
+
+    http://iridia.ulb.ac.be/~manuel/moaco
+
+
+------------
+Changelog
+------------
+
+Version 0.1
+
+  * This version corresponds to the framework described in:
+
+     Manuel López-Ibáñez and Thomas Stützle. The Automatic Design of
+     Multi-Objective Ant Colony Optimization Algorithms. IEEE
+     Transactions on Evolutionary Computation, 2012.
+     doi: 10.1109/TEVC.2011.2182651
+
+  * moaco: Multi-objective ant colony optimization framework, implementing:
+     +  MOAQ
+     +  Pareto ACO (PACO)
+     +  BicriterionAnt
+     +  Multi-Objective Network ACO (MONACO)
+     +  m-ACO variant 1 (mACO1)
+     +  m-ACO variant 2 (mACO2)
+     +  m-ACO variant 3 (mACO3)
+     +  m-ACO variant 4 (mACO4)
+     +  MACS
+     +  COMPETants
+  * btsp: Bi-objective travelling salesman problem.
+  * libpareto: A small library to handle Pareto (nondominated) sets.
+  * libmisc: A library with miscellaneous utilities.
+
