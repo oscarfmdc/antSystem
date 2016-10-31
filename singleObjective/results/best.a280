@@ -4,7 +4,7 @@ Parameter-settings:
 max_tries		 10
 max_tours		 0
 max_time		 60.00
-seed		 1477568818
+seed		 1477934962
 optimum			 2579
 n_ants			 280
 nn_ants			 20
@@ -24,22 +24,22 @@ mmas_flag		 1
 bwas_flag		 0
 acs_flag		 0
 
-Best: 2579	 Iterations:     15	 B-Fac 1.35714	 Time 0.65	 Tot.time 0.65
-Best: 2579	 Iterations:     16	 B-Fac 1.26786	 Time 0.62	 Tot.time 0.62
-Best: 2579	 Iterations:     12	 B-Fac 1.35893	 Time 0.48	 Tot.time 0.48
-Best: 2579	 Iterations:      9	 B-Fac 1.38393	 Time 0.36	 Tot.time 0.37
-Best: 2579	 Iterations:     13	 B-Fac 1.35179	 Time 0.51	 Tot.time 0.51
-Best: 2579	 Iterations:      5	 B-Fac 1.36071	 Time 0.21	 Tot.time 0.21
-Best: 2579	 Iterations:     12	 B-Fac 1.29821	 Time 0.47	 Tot.time 0.47
-Best: 2579	 Iterations:     16	 B-Fac 1.32679	 Time 0.62	 Tot.time 0.62
-Best: 2579	 Iterations:     12	 B-Fac 1.33036	 Time 0.47	 Tot.time 0.47
-Best: 2579	 Iterations:     13	 B-Fac 1.34464	 Time 0.52	 Tot.time 0.52
+Best: 2579	 Iterations:     15	 B-Fac 1.33214	 Time 0.66	 Tot.time 0.66
+Best: 2579	 Iterations:     13	 B-Fac 1.33750	 Time 0.52	 Tot.time 0.52
+Best: 2579	 Iterations:     13	 B-Fac 1.32679	 Time 0.52	 Tot.time 0.52
+Best: 2579	 Iterations:     12	 B-Fac 1.37143	 Time 0.48	 Tot.time 0.48
+Best: 2579	 Iterations:     15	 B-Fac 1.32143	 Time 0.61	 Tot.time 0.61
+Best: 2579	 Iterations:     15	 B-Fac 1.35714	 Time 0.60	 Tot.time 0.60
+Best: 2579	 Iterations:      8	 B-Fac 1.38571	 Time 0.35	 Tot.time 0.35
+Best: 2579	 Iterations:     12	 B-Fac 1.35714	 Time 0.49	 Tot.time 0.49
+Best: 2579	 Iterations:     13	 B-Fac 1.36429	 Time 0.56	 Tot.time 0.56
+Best: 2579	 Iterations:     17	 B-Fac 1.30714	 Time 0.71	 Tot.time 0.71
 
-Average-Best: 2579.00	 Average-Iterations: 12.30
-Stddev-Best: 0.00 	 Stddev Iterations: 3.33
+Average-Best: 2579.00	 Average-Iterations: 13.30
+Stddev-Best: 0.00 	 Stddev Iterations: 2.45
 Best try: 2579		 Worst try: 2579
 
-Avg.time-best: 0.49 stddev.time-best: 0.13
+Avg.time-best: 0.55 stddev.time-best: 0.10
 
-Avg.time-total: 0.49 stddev.time-total: 0.13
+Avg.time-total: 0.55 stddev.time-total: 0.10
  excess best = 0.000000, excess average = 0.000000, excess worst = 0.000000
