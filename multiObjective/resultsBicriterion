@@ -9,16 +9,16 @@
 # conditions.  See the GNU General Public License for details. There is NO   
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-# Command:  /home/borja/bin/moaco_btsp --input ../../btsp/kroAB100.tsp --time 100 --BicriterionAnt
+# Command:  /home/borja/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 100 --BicriterionAnt
 #
 # bTSP (0.1.svn492)
-# Data File: ../../btsp/kroAB100.tsp   Size: 100    Averages: Distance1=1693.59  Distance2=1670.67
+# Data File: ../../btsp/euclidAB100.tsp   Size: 100    Averages: Distance1=1593.07  Distance2=1668.20
 #
 #  Parameter settings:
 #	number trials : 1
 #	number iterations : -1
 #	time limit : 100
-#	seed : 1477936221
+#	seed : 1478001207
 #	ACO algorithm : mmas
 #	number of ants : 100
 #	rho : 0.02
@@ -26,9 +26,9 @@
 #	pbest : 0.05
 #	alpha : 1
 #	beta  : 2
-#	tau_0   : 3.82482e-05
-#	tau_max : 3.82482e-05
-#	tau_min : 1.91241e-07
+#	tau_0   : 3.64431e-05
+#	tau_max : 3.64431e-05
+#	tau_min : 1.82216e-07
 #	flag_dtau_objective_function: TRUE
 #	ants candidate list : not used
 #	Number for update : 1001
@@ -47,66 +47,52 @@
 #	e-PLS : FALSE (N = 0)
 
 # Initialization time: 0 s
-# VmSize: 9644 kB	VmRSS: 3544 kB
-# end_trial(1) : Pareto Size = 59, Iterations = 739, Elapsed time = 100.1 s, Time (LS) = 0 s
-# Pareto: 1  Size: 59
-35943 148759
-36857 141002
-38850 136525
-40144 135415
-41389 133861
-41897 133224
-41927 132719
-42576 132371
-43010 131973
-43031 131711
-43516 129851
-43593 128641
-43722 125115
-45397 122045
-46708 121433
-47932 113105
-50171 111824
-50411 111498
-50793 110371
-51456 107059
-52333 106888
-54906 102888
-55509 98338
-57844 98313
-59973 97868
-60557 97463
-62518 94936
-63577 93480
-63925 84731
-64687 84631
-71512 84301
-74853 81970
-76511 76836
-78546 75903
-80952 75156
-81761 73748
-83506 71609
-87266 68474
-93237 67873
-93736 67182
-94618 66004
-95324 58492
-101507 58256
-104802 57123
-104870 55884
-107824 52128
-111817 51724
-114521 49510
-123647 48721
-124777 47019
-126431 45552
-126961 45038
-128675 42039
-129463 41838
-139901 40314
-142538 39683
-147345 39129
-147425 38459
-147510 38176
-# Average Number Iterations = 739, Average Trial Time = 100.1 s
+# VmSize: 9644 kB	VmRSS: 3412 kB
+# end_trial(1) : Pareto Size = 45, Iterations = 693, Elapsed time = 100.1 s, Time (LS) = 0 s
+# Pareto: 1  Size: 45
+42522 146613
+44142 146368
+45610 136950
+48134 127054
+52032 125878
+54855 125570
+56513 123153
+56552 121852
+57308 119814
+58391 110697
+65860 110565
+66201 109855
+66384 104927
+70074 104615
+70368 100044
+71384 99301
+74495 97339
+76049 95069
+80271 93770
+82175 91134
+82745 90111
+83786 82805
+89839 80262
+93300 78647
+95322 76152
+96880 68946
+106205 68705
+107687 66325
+109604 65206
+111663 60413
+116204 58743
+119697 57811
+120053 56609
+120205 56095
+121893 55315
+123695 52768
+124546 51215
+128448 48318
+133031 48251
+137411 47366
+138143 46992
+138369 43573
+139856 43232
+142439 42810
+144847 38659
+# Average Number Iterations = 693, Average Trial Time = 100.1 s
