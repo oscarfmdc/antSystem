@@ -5,6 +5,6 @@
 #~/bin/moaco_btsp --input ../../btsp/kroAB100.tsp --time 100 --BicriterionAnt > ../../resultsBicriterion
 #~/bin/moaco_btsp --input ../../btsp/kroAB100.tsp --time 100 --PACO > ../../resultsPACO
 
-~/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 100 -m 100 -b 3 --BicriterionAnt > ../../resultsBicriterion
-~/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 100 -m 100 -b 3 --PACO > ../../resultsPACO
-~/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 100 -m 100 -b 3 --MONACO > ../../resultsMONACO
+~/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 200 -m 100 -b 5 --BicriterionAnt > ../../resultsBicriterion
+~/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 200 -m 100 -b 5 --PACO > ../../resultsPACO
+~/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 200 -m 100 -b 5 --MONACO > ../../resultsMONACO

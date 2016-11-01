@@ -9,7 +9,7 @@
 # conditions.  See the GNU General Public License for details. There is NO   
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-# Command:  /home/borja/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 100 -m 100 -b 3 --MONACO
+# Command:  /home/borja/bin/moaco_btsp --input ../../btsp/euclidAB100.tsp --time 200 -m 100 -b 5 --MONACO
 #
 # bTSP (0.1.svn492)
 # Data File: ../../btsp/euclidAB100.tsp   Size: 100    Averages: Distance1=1593.07  Distance2=1668.20
@@ -17,15 +17,15 @@
 #  Parameter settings:
 #	number trials : 1
 #	number iterations : -1
-#	time limit : 100
-#	seed : 1478002312
+#	time limit : 200
+#	seed : 1478003168
 #	ACO algorithm : mmas
 #	number of ants : 100
 #	rho : 0.02
 #	q_0 : 0
 #	pbest : 0.05
 #	alpha : 1
-#	beta  : 3
+#	beta  : 5
 #	tau_0   : 50
 #	tau_max : 50
 #	tau_min : 0.25
@@ -48,25 +48,31 @@
 
 # Initialization time: 0 s
 # VmSize: 9800 kB	VmRSS: 3540 kB
-# end_trial(1) : Pareto Size = 19, Iterations = 954, Elapsed time = 100 s, Time (LS) = 0 s
-# Pareto: 1  Size: 19
-67509 102581
-67755 96325
-69926 88828
-70433 87228
-72898 87012
-73051 86166
-73560 79434
-77261 78723
-78157 78115
-78656 77715
-78693 75139
-80248 72193
-86326 70833
-87699 70076
-89127 69840
-90728 69330
-91212 68843
-92413 68661
-93882 66358
-# Average Number Iterations = 954, Average Trial Time = 100 s
+# end_trial(1) : Pareto Size = 25, Iterations = 1895, Elapsed time = 200 s, Time (LS) = 0 s
+# Pareto: 1  Size: 25
+67120 101036
+67795 98782
+67959 95334
+68147 91862
+69341 87867
+70157 86737
+70555 86415
+70973 84185
+71237 81815
+73002 80992
+73547 79691
+75341 75980
+76800 74423
+81713 74324
+81844 71690
+83060 71081
+85174 70548
+85507 69252
+87048 68555
+87524 66768
+88951 65145
+94182 64928
+95574 64756
+98163 62160
+101744 61858
+# Average Number Iterations = 1895, Average Trial Time = 200 s
